@@ -1,0 +1,66 @@
+
+<!-- x-data="foo" initializes an Alpine component with the data function named foo . This function
+will be defined in your JavaScript file.
+
+x-cloak hides the enclosed elements until Alpine is initialized, preventing any unstyled content
+from flashing before your JavaScript takes effect.
+
+x-text="myData" binds the text content of the paragraph to a property called myData .
+
+x-model="myData" creates a two-way binding on the input element, linking its value to the
+myData property.
+
+@click="myData=changeData" changes the value of myData when the button is clicked by
+calling the changeData method -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine Basics</title>
+    </head>
+    <body>
+
+        <div x-data="foo" x-cloak>
+            <p x-text="myData" x-show="buttonVisible"></p> <!-- Use x-show for the paragraph visibility -->
+            <input type="text" x-model="myData">
+            <button @click="myData=changeData">Click Me</button>
+            <button @click="toggleButtonVisibility">Toggle Paragraph Visibility</button>
+            <input type="text" :placeholder="`Your message is ${myData}`">
+            <input type="text" x-model="newItem" placeholder="Enter item name">
+            <button @click="addItem()">Add Item</button>
+            
+
+            <!-- Display list items -->
+            <ul>
+             <template x-for="item in items" :key="item">
+              <li x-text="item"></li>
+             </template>
+            </ul>
+
+            <p :class="{'text-red': myData === 'Hello Alpine.js!', 'text-black': myData !== 'Hello Alpine.js!'}" x-text="myData"></p>
+            <input type="text" x-model="myData">
+            <button @click="myData=changeData">Click Me</button>
+        </div>
+        <div x-data="counter">
+            <p>Counter: <span x-text="count"></span></p>
+            <button @click="decrement()">-</button>
+            <button @click="increment()">+</button>
+        </div>
+        <script src="./node_modules/alpinejs/dist/cdn.min.js" defer></script>
+
+        <script src="app.js"></script>
+    </body>
+</html>
+
+<style>
+    .text-red {
+      color: red;
+    }
+    .text-black {
+      color: black;
+    }
+  </style>
