@@ -22,8 +22,15 @@ const books = [
 
 // Endpoint to get books
 app.get('/books', (req, res) => {
-  const { genre, author, title } = req.query;
+  const { genre, author, title, id } = req.query; 
   let filteredBooks = books;
+
+  if (id) {
+    const numericId = parseInt(id, 10); // Convert id from string to integer
+    if (!isNaN(numericId)) { // Check if the conversion was successful
+      filteredBooks = filteredBooks.filter(book => book.id === numericId);
+    }
+  }
  
   if (genre) {
     filteredBooks = filteredBooks.filter(book => book.genre.toLowerCase().includes(genre.toLowerCase()));
@@ -43,6 +50,19 @@ app.get('/genres', (req, res) => {
   const uniqueGenres = [...new Set(books.map(book => book.genre))];
   res.json(uniqueGenres);
 });
+
+// New endpoint to get unique authors
+app.get('/authors', (req, res) => {
+  const uniqueAuthors = [...new Set(books.map(book => book.author))];
+  res.json(uniqueAuthors);
+});
+
+// New endpoint to get unique titles
+app.get('/titles', (req, res) => {
+  const uniqueTitles = [...new Set(books.map(book => book.title))];
+  res.json(uniqueTitles);
+});
+
 
 const PORT = process.env.PORT || 5500;
 app.listen(PORT, () => {

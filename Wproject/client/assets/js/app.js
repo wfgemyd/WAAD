@@ -14,10 +14,15 @@ which in turn updates the paragraph and input field thanks to Alpine's reactivit
 
 document.addEventListener('alpine:init', () => {
     Alpine.data('libraryApp', () => ({
-        books: [],
+        books: [], 
         search: '',
         selectedGenre: '',
+        selectedAuthor: '',
+        selectedTitle: '',
         genres: [], // Add more genres as needed
+        authors: [], // Add more authors as needed
+        titles: [], // Add more titles as needed
+
         currentSort: 'title',
         currentSortDir: 'asc',
 
@@ -25,12 +30,18 @@ document.addEventListener('alpine:init', () => {
         init() {
             this.fetchGenres();
             this.fetchBooks();
+            this.fetchAuthors();
+            this.fetchTitles();
+
         },
 
         fetchBooks() {
-            const params = new URLSearchParams({
-                title: this.search,
-                genre: this.selectedGenre
+            const params = new URLSearchParams({ //search by title, genre, author
+                id: this.search,
+                genre: this.selectedGenre,
+                author: this.selectedAuthor,
+                title: this.selectedTitle
+
             }).toString();
             fetch(`http://localhost:5500/books?${params}`)
                 .then(response => {
@@ -61,6 +72,36 @@ document.addEventListener('alpine:init', () => {
                 })
                 .catch(error => {
                     console.error('Error fetching genres:', error);
+                });
+        },
+        fetchAuthors() {
+            fetch(`http://localhost:5500/authors`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    this.authors = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching authors:', error);
+                });
+        },
+        fetchTitles() {
+            fetch(`http://localhost:5500/titles`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    this.titles = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching titles:', error);
                 });
         },
 
