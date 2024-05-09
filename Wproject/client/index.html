@@ -24,9 +24,18 @@ calling the changeData method -->
     <title>Library Catalog</title>
 </head>
 <body>
-    <button class="loginbtn">Login</button>
 
-    <h1>Library Catalog</h1>
+
+
+
+    <div class="header">
+        <div>
+            <h1>Library Catalog</h1>
+        </div>
+        <div>
+            <a href="http://127.0.0.1:5500/Wproject/client/login.html" class="loginbtn">Login</a>
+        </div>
+    </div>
     <div x-data="libraryApp()" x-init="fetchBooks()" class="container">
         <div class="searchRow">
             <input type="text" x-model="search" placeholder="Search book ID...">

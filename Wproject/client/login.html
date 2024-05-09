@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ goodbyeMessage: false }">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Library Catalog</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="first_page_login_container login-page">
+            <div class="welcoming_msg"><h1>Member Log In</h1></div>
+            <div class="wbi_login_container">
+                <form @submit.prevent="login">
+                    <div class="input_container">
+                        <label class="input_label" for="email">Email:</label>
+                        <input type="text" id="username" v-model="username" placeholder="Enter your WBI" required>
+                    </div>
+                    <div class="input_container">
+                        <label class="input_label" for="password">Password:</label>
+                        <input type="password" id="password" v-model="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="login_btn">
+                        <button type="submit">Log In</button>
+                    </div>
+                    <!-- Register Button -->
+                    <div class="register_btn">
+                        <button type="button" onclick="window.location.href='register.html';">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

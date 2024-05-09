@@ -1,0 +1,60 @@
+@use './fonts.sass' as * //import all the variables from index.sass
+@use './colors.sass' as * //import all the variables from index.sass
+@use './radius.sass' as * //import all the variables from index.sass
+
+$distans_between_elements: 1rem
+
+.wrapper
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: $background-color
+
+.first_page_login_container
+  border-radius: $radius_outer
+  padding-left: 5rem
+  padding-right: 5rem
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  background: $container_background_color
+
+  .welcoming_msg
+    margin-top: 1.5rem
+    margin-bottom: 1rem
+    h1
+      font-size: $header_fontsize
+      font-weight: $header_fontweight
+
+  .input_container
+    display: flex
+    flex-direction: column
+    margin-bottom: $distans_between_elements
+    input
+      padding: 10px
+      border: solid 1px #ccc
+      border-radius: $radius_inner
+      width: 100%
+      outline: none
+      margin-bottom: $distans_between_elements
+
+
+  .login_btn, .register_btn
+    display: flex
+    justify-content: center
+    align-items: center
+    button
+      margin-bottom: 1rem
+      background-color: #007bff
+      color: white
+      border: none
+      cursor: pointer
+      border-radius: 5px
+      padding: 10px
+      font-size: 1rem
