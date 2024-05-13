@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" x-data="registrationForm()">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Library Catalog - Registration</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="first_page_login_container login-page">
+            <div class="welcoming_msg"><h1>Member Registration</h1></div>
+            <div class="wbi_login_container">
+                <form @submit.prevent="submitForm">
+                    <div class="input_container">
+                        <label class="input_label" for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" x-model="fullname" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="input_container">
+                        <label class="input_label" for="username">Username:</label>
+                        <input type="text" id="username" x-model="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input_container">
+                        <label class="input_label" for="password">Password:</label>
+                        <input type="password" id="password" x-model="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="register_btn">
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/registration.js"></script>
+</body>
+</html>

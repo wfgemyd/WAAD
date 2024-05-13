@@ -1,0 +1,97 @@
+
+<!-- x-data="foo" initializes an Alpine component with the data function named foo . This function
+will be defined in your JavaScript file.
+
+x-cloak hides the enclosed elements until Alpine is initialized, preventing any unstyled content
+from flashing before your JavaScript takes effect.
+
+x-text="myData" binds the text content of the paragraph to a property called myData .
+
+x-model="myData" creates a two-way binding on the input element, linking its value to the
+myData property.
+
+@click="myData=changeData" changes the value of myData when the button is clicked by
+calling the changeData method -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Library Catalog</title>
+</head>
+<body>
+
+
+
+
+    <div class="header">
+        <div>
+            <h1>Library Catalog</h1>
+        </div>
+        <div>
+            <a href="/Wproject/client/login.html" class="loginbtn">Login</a>
+        </div>
+        
+    </div>
+    <div x-data="libraryApp()" x-init="fetchBooks()" class="container">
+        <div class="searchRow">
+            <input type="text" x-model="search" placeholder="Search book ID...">
+
+
+            <button @click="fetchBooks()">Search</button>
+        </div>
+        <div class="filterRow">
+            <select x-model="selectedGenre">
+                <option value="">All Genres</option>
+                <template x-for="genre in genres">
+                    <option x-bind:value="genre" x-text="genre"></option>
+                </template>
+            </select>
+            <select x-model="selectedAuthor">
+                <option value="">All Authors</option>
+                <template x-for="author in authors">
+                    <option x-bind:value="author" x-text="author"></option>
+                </template>
+            </select>
+            <select x-model="selectedTitle">
+                <option value="">All Titles</option>
+                <template x-for="title in titles">
+                    <option x-bind:value="title" x-text="title"></option>
+                </template>
+            </select>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th @click="sortBy('id')">ID</th> 
+                    <th @click="sortBy('title')">Title</th>
+                    <th @click="sortBy('author')">Author</th>
+                    <th @click="sortBy('genre')">Genre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-for="book in sortedBooks" :key="book.id">
+                    <tr>
+                        <td x-text="book.id"></td>
+                        <td x-text="book.title"></td>
+                        <td x-text="book.author"></td>
+                        <td x-text="book.genre"></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="assets/js/app.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+</body>
+</html>
+
+<style>
+
+    
+</style>

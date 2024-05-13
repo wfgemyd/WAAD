@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1, h2, h3, h5, h6, p, a, span, label {
+  font-family: "Inter", sans-serif;
+}
+
+h4 {
+  font-family: "roboto", sans-serif;
+  font-weight: 500;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f8fb;
+}
+
+.first_page_login_container {
+  border-radius: 10px;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #FFFFFF;
+}
+.first_page_login_container .welcoming_msg {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+.first_page_login_container .welcoming_msg h1 {
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+.first_page_login_container .input_container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.first_page_login_container .input_container input {
+  padding: 10px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+  margin-bottom: 1rem;
+}
+.first_page_login_container .login_btn, .first_page_login_container .register_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.first_page_login_container .login_btn button, .first_page_login_container .register_btn button {
+  margin-bottom: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 2rem;
+}
+body .loginbtn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 90%;
+  padding: 10px;
+  margin-top: 10px;
+}
+body .loginbtn:hover {
+  background-color: #0056b3;
+}
+body h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+body .container {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+body .container .searchRow {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  width: 100%;
+}
+body .container .searchRow input {
+  padding: 10px;
+  border: none;
+  border: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-radius: 5px;
+  width: 80%;
+  outline: none;
+  font-size: 1rem;
+}
+body .container .searchRow input:focus {
+  border: 1px solid #007bff;
+  border-right: 1px solid #ccc;
+}
+body .container .searchRow button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 20%;
+}
+body .container .searchRow button:hover {
+  background-color: #0056b3;
+}
+body .container .filterRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+body .container .filterRow select {
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: none;
+  border: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 0.8rem;
+}
+body .container .filterRow select:focus {
+  border: 1px solid #007bff;
+  border-right: 1px solid #007bff;
+}
+body .container .filterRow option {
+  padding: 10px;
+  border: none;
+  border: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 0.8rem;
+}
+body .container .filterRow option:focus {
+  border: 1px solid #007bff;
+  border-right: 1px solid #007bff;
+}
+body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+body th, body td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+body th {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+body tr:hover {
+  background-color: #f5f5f5;
+}
+
+/*# sourceMappingURL=styles.css.map */

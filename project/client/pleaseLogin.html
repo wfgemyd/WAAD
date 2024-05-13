@@ -1,0 +1,62 @@
+<!-- pleaseLogin.html -->
+<!DOCTYPE html>
+<html lang="en" x-data="{ goodbyeMessage: false }">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Library Catalog</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="please-login">
+        <h1>Whoa there, Partner!</h1>
+        <p>Looks like you've wandered off the trail. 🤠</p>
+        <p>Don't worry, you can hitch your wagon back on track by moseying on over to the login page.</p>
+        <h5>Just click your spurs <a href="#" @click.prevent="goodbyeMessage = true; setTimeout(() => { window.location.href = 'http://127.0.0.1:5500/Wproject/client/'; }, 3000);">here</a> and you'll be back in the saddle in no time!</h5>
+        
+        <template x-if="goodbyeMessage">
+            <div>
+                <p>Hold your horses! Redirecting you now...</p>
+            </div>
+        </template>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
+
+
+  <style scoped>
+  .please-login {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 48px;
+    color: black;
+  }
+  
+  p, h5 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  </style>
+  

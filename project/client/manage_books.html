@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div x-data="bookApp()" x-init="fetchBooks()">
+        <h1>Library Book Management</h1>
+
+        <!-- Form for adding/updating books -->
+        <form @submit.prevent="submitForm">
+            <input type="hidden" x-model="form.id">
+            <input type="text" x-model="form.title" placeholder="Title" required>
+            <input type="number" x-model="form.publication_year" placeholder="Publication Year" required>
+            <input type="text" x-model="form.isbn" placeholder="ISBN" required>
+            <input type="text" x-model="form.author" placeholder="Author" required>
+            <input type="text" x-model="form.genre" placeholder="Genre" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- List of books -->
+        <ul>
+            <template x-for="book in books" :key="book.id">
+                <li>
+                    <span x-text="book.title + ' by ' + book.author + ' (' + book.genre + ')'"></span>
+                    <button @click="editBook(book)">Edit</button>
+                    <button @click="deleteBook(book.id)">Delete</button>
+                </li>
+            </template>
+        </ul>
+    </div>
+
+    <script src="assets/js/menu.js"></script>
+</body>
+</html>
