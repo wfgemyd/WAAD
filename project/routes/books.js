@@ -8,7 +8,7 @@ router.get('/books', async (req, res) => {
 
     // Construct the base query
     let query = `
-      SELECT b.id, b.title, a.full_name AS author, g.name AS genre
+      SELECT b.id, b.title, b.isbn, b.publication_year, a.full_name AS author, g.name AS genre
       FROM books b
       JOIN authors a ON b.author_id = a.id
       JOIN genres g ON b.genre_id = g.id

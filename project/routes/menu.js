@@ -1,8 +1,10 @@
 require('dotenv').config();
 const router = require('express').Router();
 const db = require('./postgres');
+const authorize = require('./authorize'); // Import the authorize middleware
 
-
+// Apply the authorize middleware to all routes
+router.use(authorize);
 
 // Route to add a new book
 router.post('/books', async (req, res) => {

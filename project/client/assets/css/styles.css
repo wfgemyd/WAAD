@@ -73,6 +73,86 @@ h4 {
 }
 
 body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+h1 {
+  color: black;
+}
+
+.menuform {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.menuform input[type=text],
+.menuform input[type=number] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.menuform input[type=text]:focus,
+.menuform input[type=number]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+.menuform button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.menuform button:hover {
+  background-color: #0062cc;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+ul li {
+  background: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
+}
+ul li span {
+  max-width: 70%;
+}
+ul button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+ul button:hover {
+  background-color: #0062cc;
+}
+
+body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f0f0;
   margin: 0;

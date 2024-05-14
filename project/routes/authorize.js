@@ -1,16 +1,12 @@
 require('dotenv').config();
-const router = require('express').Router();
-// authorize.js
-
 const jwt = require('jsonwebtoken');
-
-
+console.log('authorize.js');
 function authorize(req, res, next) {
+    console.log('authorize2.js');
     try {
         const authHeader = req.headers.authorization;
         const token = authHeader && authHeader.split(' ')[1]; // Extract token from "Bearer <token>"
         
-
         if (!token) {
             return res.redirect('/pleaseLogin');
         }
@@ -21,16 +17,12 @@ function authorize(req, res, next) {
                 return res.redirect('/pleaseLogin');
             }
             req.user = decoded;
-
             next();
         });
     } catch (err) {
         console.error(err);
-        return res.status(500).json({ message: 'Server error' });
+        return res.redirect('/pleaseLogin');
     }
 }
 
-
-
-
-module.exports = router;
+module.exports = authorize;

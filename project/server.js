@@ -10,26 +10,30 @@ app.use(cors());
 app.use(express.json());
 
 const loginRouter = require('./routes/login.js');
-const authorizeRouter = require('./routes/authorize.js');
+const authorize = require('./routes/authorize.js');
 const booksRouter = require('./routes/books.js'); 
 const registerRouter = require('./routes/register.js');
 const menuRouter = require('./routes/menu.js');
 
+// Serve static files - unprotected
+app.use(express.static(path.join(__dirname, 'client')));
 
-app.use(express.static(path.join(__dirname, 'Wproject')));
-
-
+// Protected route for manage_books.html
+app.get('/Wproject/client/manage_books.html', authorize, (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'manage_books.html'));
+});
 
 app.use('/', booksRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/api', authorizeRouter);
-app.use('/api/menu',authorizeRouter, menuRouter);
+app.use('/api', authorize);
+app.use('/api/menu',authorize, menuRouter);
 
 
 
 app.get('/pleaseLogin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/dist/index.html'));
+    console.log('pleaseLogin');
+    res.sendFile(path.join(__dirname, 'client/index.html'));
 });
 
 

@@ -6,20 +6,32 @@
     <title>Library Management</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+    <script>
+        // Check for the token before rendering the page
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/Wproject/client/pleaseLogin.html';
+            }
+        });
+    </script>
 </head>
 <body>
     <div x-data="bookApp()" x-init="fetchBooks()">
+        <div>
+            <a href="/Wproject/client/index.html" class="loginbtn" @click="logout">Logout</a>
+        </div>
         <h1>Library Book Management</h1>
 
         <!-- Form for adding/updating books -->
-        <form @submit.prevent="submitForm">
+        <form @submit.prevent="submitForm" class="menuform">
             <input type="hidden" x-model="form.id">
             <input type="text" x-model="form.title" placeholder="Title" required>
             <input type="number" x-model="form.publication_year" placeholder="Publication Year" required>
             <input type="text" x-model="form.isbn" placeholder="ISBN" required>
             <input type="text" x-model="form.author" placeholder="Author" required>
             <input type="text" x-model="form.genre" placeholder="Genre" required>
-            <button type="submit">Submit</button>
+            <button type="submit" x-text="editingBookId ? 'Update' : 'Submit'">Submit</button>
         </form>
 
         <!-- List of books -->
@@ -27,8 +39,10 @@
             <template x-for="book in books" :key="book.id">
                 <li>
                     <span x-text="book.title + ' by ' + book.author + ' (' + book.genre + ')'"></span>
-                    <button @click="editBook(book)">Edit</button>
-                    <button @click="deleteBook(book.id)">Delete</button>
+                    <div>
+                        <button @click="editBook(book)" x-show="!isEditing(book)">Edit</button>
+                        <button @click="deleteBook(book.id)">Delete</button>
+                    </div>
                 </li>
             </template>
         </ul>
