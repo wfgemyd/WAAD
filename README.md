@@ -55,7 +55,8 @@ npm install path
 
 ______________________________________________________________
 # Starting
-In the project folder run: npm run dev
+In the project folder run: "npm run dev".
+
 In Vs-code use the live server add-on to open the project main file - index.html that is in the client folder.
 
 
