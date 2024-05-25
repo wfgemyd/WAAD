@@ -20,23 +20,7 @@ To set up the project, follow these steps:
 
 npm install
 
-npm install express
-
-npm install body-parser
-
-npm install dotenv
-
-npm install pg
-
-npm install jsonwebtoken
-
-npm install bcrypt
-
 npm install -g nodemon
-
-npm install multer
-
-npm install path
 
 npm install concurrently --save-dev
 
@@ -45,15 +29,8 @@ npm install concurrently --save-dev
 
 npm install
 
-npm install axios
-
-npm install vue-router@next
-
 npm install sass-loader sass --save-dev
 
-npm install multer
-
-npm install path
 
 ## Application Architecture
 
