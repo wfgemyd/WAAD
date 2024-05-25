@@ -85,7 +85,8 @@ Improved Development Experience: SASS leads to a faster development process and 
 
 ## Deployment
 
-The application is designed for deployment on a Google Cloud Virtual Machine (VM), providing a scalable and secure hosting environment. Environment variables are managed through .env files to ensure security and ease of configuration.
+The application is designed for deployment on a Google Cloud Virtual Machine (VM), providing a scalable and secure hosting environment. Environment variables are managed through .env files to ensure security and ease of configuration. 
+http://34.82.179.167:5500
 
 ## Development Process
 
@@ -146,6 +147,22 @@ Prepare and submit project documentation, including user manuals and API documen
 - **Styling:** Maintaining consistent styling across different components was addressed by using SASS variables and modular partials.
 
 
-### Dyployment
+### Explanation of Design Choices
 
-http://34.82.179.167:5500
+In the development of this project, which utilizes Alpine.js, Express.js, and PostgreSQL, I made a conscious decision to load all the book data at once in the select form elements. This design choice was made as a demonstration of the concept of API interaction, rather than for a practical, large-scale implementation.
+
+
+### Rationale for Loading All Data at Once
+
+For the proof of concept, I wanted to ensure that the user would have a comfortable browsing experience, with the ability to easily navigate and select from the available books. By loading all the data upfront, the user can quickly and seamlessly interact with the application, without the need for additional page loads or pagination.
+
+
+### Considerations for Larger Datasets
+
+I acknowledge that in a real-world scenario with a larger library, such as 50,000 books, loading all the data at once may not be the most practical approach. In such cases, implementing pagination or lazy loading techniques would be more appropriate to optimize performance and provide a smooth user experience.
+
+
+### Spaghetti Code Approach
+
+Due to the size and scope of the project, the codebase was not divided into smaller, more manageable chunks, as is typically recommended in the industry. This "spaghetti code" approach was chosen to make the project easier to debug and maintain during the proof-of-concept stage.
+I understand that in a production-ready application, it is generally accepted best practice to modularize the codebase and follow established software engineering principles.
