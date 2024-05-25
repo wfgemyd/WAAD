@@ -144,3 +144,8 @@ Prepare and submit project documentation, including user manuals and API documen
 - **Data Fetching:** Managing asynchronous data fetching and state management required careful planning and implementation.
 
 - **Styling:** Maintaining consistent styling across different components was addressed by using SASS variables and modular partials.
+
+
+### Dyployment
+
+http://34.82.179.167:5500
